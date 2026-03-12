@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برامج مميزة | سفراء الخير</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --main-blue: #1e3a8a; --accent-red: #ef4444; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; }
+        .navbar { background: var(--main-blue) !important; padding: 15px 0; }
+        .header-section { background: linear-gradient(45deg, var(--main-blue), #2563eb); color: white; padding: 80px 0 40px; text-align: center; }
+        
+        .featured-card {
+            border: none; border-radius: 25px; overflow: hidden; transition: 0.4s;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); position: relative;
+        }
+        .featured-card:hover { transform: scale(1.02); }
+        .badge-featured {
+            position: absolute; top: 20px; right: 20px;
+            background: var(--accent-red); color: white; padding: 8px 15px;
+            border-radius: 50px; font-weight: bold; z-index: 10;
+        }
+        .card-img-top { height: 250px; object-fit: cover; }
+        .btn-more { background: var(--main-blue); color: white; border-radius: 50px; padding: 10px 25px; border: none; }
+        footer { background: #0f172a; color: white; padding: 30px 0; margin-top: 50px; }
+    </style>
+    <meta name="description" content="المكتب الوطني لجمعية سفراء الخير - جمعية وطنية تعنى بالعمل الخيري، التخييم، والأنشطة التربوية والاجتماعية في المغرب.">
+<meta name="keywords" content="سفراء الخير, جمعية سفراء الخير, المكتب الوطني, مخيمات صيفية المغرب, عمل خيري المغرب, تطوع المغرب">
+<meta name="author" content="المكتب الوطني لسفراء الخير">
+
+<meta property="og:title" content="المكتب الوطني لسفراء الخير | الموقع الرسمي">
+<meta property="og:description" content="شاركنا العطاء وكن سفيراً للخير. الموقع الرسمي للجمعية بالمغرب.">
+<meta property="og:image" content="Image1.jpeg"> <meta property="og:url" content="https://www.yourdomain.com">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">سفراء الخير</a>
+            <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-3">الرجوع للرئيسية</a>
+        </div>
+    </nav>
+
+    <header class="header-section">
+        <div class="container">
+            <h1 class="fw-900 animate__animated animate__fadeInDown">برامجنا المميزة ⭐</h1>
+            <p class="lead opacity-75">المشاريع الكبرى التي تصنع التغيير الحقيقي في الميدان</p>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card featured-card h-100">
+                    <span class="badge-featured"><i class="fa-solid fa-fire"></i> رائد</span>
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600" class="card-img-top">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="fw-bold mb-3">قفة الأمل المستدامة</h4>
+                        <p class="text-muted">برنامج شهري لتزويد 5000 أسرة مغربية بالمواد الغذائية الأساسية بشكل منتظم ودائم.</p>
+                        <button class="btn btn-more mt-3">تفاصيل المشروع</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card featured-card h-100 border-primary border-2">
+                    <span class="badge-featured" style="background: #fbbf24;"><i class="fa-solid fa-star"></i> الأكثر أثراً</span>
+                    <img src="https://images.unsplash.com/photo-1584515933487-759f38e85c50?auto=format&fit=crop&w=600" class="card-img-top">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="fw-bold mb-3">سفراء الصحة الجوالة</h4>
+                        <p class="text-muted">قوافل طبية متكاملة تجوب الجبال والمناطق النائية لتقديم الفحوصات والعمليات الجراحية مجاناً.</p>
+                        <button class="btn btn-more mt-3">تفاصيل المشروع</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card featured-card h-100">
+                    <span class="badge-featured"><i class="fa-solid fa-bolt"></i> استعجالي</span>
+                    <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600" class="card-img-top">
+                    <div class="card-body p-4 text-center">
+                        <h4 class="fw-bold mb-3">دفء الشتاء (الأطلس)</h4>
+                        <p class="text-muted">توزيع الأغطية والملابس والتدفئة على سكان الدواوير المعزولة تحت الثلوج في كل فصل شتاء.</p>
+                        <button class="btn btn-more mt-3">تفاصيل المشروع</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-white">
+        <p class="mb-0 small">© 2026 سفراء الخير - المكتب الوطني</p>
+    </footer>
+
+</body>
+</html>

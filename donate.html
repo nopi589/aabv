@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحدث فرقاً اليوم | المكتب الوطني لسفراء الخير</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --main-blue: #1e3a8a;
+            --accent-red: #ef4444;
+            --gray-text: #64748b;
+        }
+
+        body { font-family: 'Cairo', sans-serif; background-color: #fff; color: #1e293b; }
+
+        .navbar { background: white; border-bottom: 1px solid #e2e8f0; padding: 15px 0; }
+        .navbar-brand { font-weight: 900; color: var(--main-blue) !important; }
+        .donate-header { padding: 60px 0 40px; text-align: center; }
+        .donate-header h1 { color: var(--main-blue); font-weight: 900; }
+
+        .card-container { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; padding-bottom: 80px; }
+        .donate-card {
+            background: white; border-radius: 12px; width: 350px; padding: 40px 30px;
+            text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9; transition: 0.3s;
+        }
+        .donate-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .donate-card.featured { border-top: 5px solid var(--accent-red); }
+        .icon-box { font-size: 3rem; color: var(--main-blue); margin-bottom: 20px; }
+        
+        .rib-group { position: relative; margin-top: 15px; }
+        .rib-input { 
+            background: #f8fafc; border: 1px solid #e2e8f0; text-align: center; 
+            padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; color: var(--main-blue);
+        }
+        .copy-btn { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); border: none; background: none; color: var(--gray-text); cursor: pointer; }
+
+        .btn-action { background: var(--main-blue); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+        .btn-action:hover { background: #162d6d; }
+        
+        /* زر الدفع الإلكتروني الجديد */
+        .btn-online { background: var(--accent-red); color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+        .btn-online:hover { background: #d93737; }
+
+        .btn-whatsapp { background: #25d366; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: 700; margin-top: 10px; }
+        
+        /* Modal Style */
+        .modal-content { border-radius: 20px; border: none; }
+        .form-control { border-radius: 8px; padding: 12px; border: 1px solid #e2e8f0; }
+    </style>
+    <meta name="description" content="المكتب الوطني لجمعية سفراء الخير - جمعية وطنية تعنى بالعمل الخيري، التخييم، والأنشطة التربوية والاجتماعية في المغرب.">
+<meta name="keywords" content="سفراء الخير, جمعية سفراء الخير, المكتب الوطني, مخيمات صيفية المغرب, عمل خيري المغرب, تطوع المغرب">
+<meta name="author" content="المكتب الوطني لسفراء الخير">
+
+<meta property="og:title" content="المكتب الوطني لسفراء الخير | الموقع الرسمي">
+<meta property="og:description" content="شاركنا العطاء وكن سفيراً للخير. الموقع الرسمي للجمعية بالمغرب.">
+<meta property="og:image" content="Image1.jpeg"> <meta property="og:url" content="https://www.yourdomain.com">
+</head>
+<body>
+
+   <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand m-0" href="index.html">سفراء الخير - المكتب الوطني</a>
+        
+        <a href="index.html" class="btn btn-outline-secondary rounded-pill px-4 fw-bold shadow-sm">
+            <i class="fa-solid fa-arrow-right ms-2"></i> العودة للرئيسية
+        </a>
+    </div>
+</nav>
+
+<a href="index.html" class="btn-return-float d-lg-none">
+    <i class="fa-solid fa-house"></i>
+</a>
+
+<style>
+    /* إضافة هاد الـ CSS للستايل ديالك */
+    .navbar { 
+        background: white; 
+        border-bottom: 1px solid #e2e8f0; 
+        padding: 10px 0; 
+    }
+    
+    .btn-outline-secondary {
+        border-color: #e2e8f0;
+        color: var(--main-blue);
+        transition: 0.3s;
+    }
+    
+    .btn-outline-secondary:hover {
+        background-color: var(--main-blue);
+        border-color: var(--main-blue);
+        color: white;
+    }
+
+    /* زر عائم كيطلع غير في التلفون */
+    .btn-return-float {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--main-blue);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: 0.3s;
+    }
+    
+    .btn-return-float:hover {
+        background-color: var(--accent-red);
+        color: white;
+        transform: scale(1.1);
+    }
+</style>
+
+    <div class="donate-header">
+        <div class="container">
+            <h1>أحدث فرقاً اليوم</h1>
+            <p>مساهمتك هي محرك عملنا الخيري.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="donate-card featured">
+                <div class="icon-box text-danger"><i class="fa-solid fa-credit-card"></i></div>
+                <h3 class="fw-bold mb-3">دفع إلكتروني آمن</h3>
+                <p class="text-muted small mb-4">تبرع مباشرة باستعمال بطاقتك البنكية المغربية أو الدولية.</p>
+                <button class="btn-online" data-bs-toggle="modal" data-bs-target="#onlineDonateModal">تبرع الآن</button>
+            </div>
+
+            <div class="donate-card">
+                <div class="icon-box"><i class="fa-solid fa-building-columns"></i></div>
+                <h3 class="fw-bold mb-3">تحويل بنكي (RIB)</h3>
+                <div class="text-end small">
+                    <p class="mb-1"><b>البنك:</b> BANK OF AFRICA</p>
+                    <p class="mb-1"><b>الحساب:</b> جمعية سفراء الخير</p>
+                </div>
+                <div class="rib-group">
+                    <input type="text" class="rib-input" id="ribValue" value="011780000098200000608668" readonly>
+                    <button class="copy-btn" onclick="copyRIB()"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <button class="btn-action" data-bs-toggle="modal" data-bs-target="#whatsappModal">تأكيد التحويل</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onlineDonateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-end">
+                <div class="modal-header d-flex justify-content-between">
+                    <h5 class="modal-title fw-bold">دفع إلكتروني آمن</h5>
+                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <img src="https://www.cmi.co.ma/sites/default/files/logo_cmi_0.png" alt="CMI" style="height: 40px;" class="me-2">
+                        <i class="fa-brands fa-cc-visa fs-2 text-primary mx-1"></i>
+                        <i class="fa-brands fa-cc-mastercard fs-2 text-warning mx-1"></i>
+                    </div>
+                    <form id="paymentForm">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">الاسم الكامل (كما في البطاقة)</label>
+                            <input type="text" class="form-control" placeholder="Mohamed El Idrissi" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">المبلغ المتبرع به (درهم)</label>
+                            <input type="number" class="form-control" placeholder="100.00" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">رقم البطاقة</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input type="text" class="form-control" placeholder="**** **** **** ****" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label small fw-bold">تاريخ الانتهاء</label>
+                                <input type="text" class="form-control" placeholder="MM/YY" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label small fw-bold">رمز التحقق (CVV)</label>
+                                <input type="text" class="form-control" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-online mt-2">تأكيد الدفع</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="whatsappModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-end">
+                <div class="modal-header d-flex justify-content-between">
+                    <h5 class="modal-title fw-bold">تأكيد التحويل عبر واتساب</h5>
+                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="small text-muted mb-4">يرجى إدخال اسمك والمبلغ، وسنقوم بتوجيهك للواتساب لإرسال صورة الوصل.</p>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">الاسم الكامل</label>
+                        <input type="text" id="donorName" class="form-control" placeholder="اسمك الكريم">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">المبلغ (درهم)</label>
+                        <input type="number" id="donorAmount" class="form-control" placeholder="0.00">
+                    </div>
+                    <button onclick="sendToWhatsapp()" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp me-2"></i> مراسلة الجمعية وتأكيد التبرع
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // دالة نسخ رقم الحساب (RIB)
+    function copyRIB() {
+        var copyText = document.getElementById("ribValue");
+        navigator.clipboard.writeText(copyText.value);
+        
+        // تنبيه زوين بلاصت alert العادية
+        const btn = document.querySelector('.copy-btn');
+        btn.innerHTML = '<i class="fa-solid fa-check text-success"></i>';
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        }, 2000);
+    }
+
+    // فورم الدفع الإلكتروني
+    document.getElementById('paymentForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert('سيتم توجيهك الآن إلى بوابة CMI الآمنة لإتمام العملية...');
+    };
+
+    // دالة إرسال الرسالة للواتساب بالنمرة الجديدة
+    function sendToWhatsapp() {
+        const name = document.getElementById('donorName').value;
+        const amount = document.getElementById('donorAmount').value;
+        
+        // النمرة ديالك معدلة (الكود الدولي للمغرب هو 212)
+        const phone = "212681173838"; 
+
+        if(name === "" || amount === "") {
+            alert("عافاك عمر السمية والمبلغ باش نقدروا نأكدوا التبرع ديالك");
+            return;
+        }
+
+        // الرسالة اللي غادي توصلك في الواتساب
+        const message = `السلام عليكم ورحمة الله،%0a%0aأنا المتبرع: *${name}*%0aلقد قمت بتحويل مبلغ: *${amount} درهم*%0aلحساب جمعية سفراء الخير.%0a%0aمرفق أسفله صورة وصل التحويل:`;
+        
+        const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
+        window.open(whatsappUrl, '_blank').focus();
+    }
+</script>
+</body>
+</html>

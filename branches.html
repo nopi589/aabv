@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قاعدة بيانات الفروع (37+) | سفراء الخير</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --main-blue: #1e3a8a; --accent-red: #ef4444; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f1f5f9; }
+        .navbar { background: white; border-bottom: 2px solid var(--main-blue); }
+        .hero-branches { background: var(--main-blue); color: white; padding: 40px 0; text-align: center; }
+        .search-wrapper { max-width: 600px; margin: -25px auto 30px; }
+        .search-wrapper input { padding: 15px 25px; border-radius: 50px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .table-container { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .city-tag { color: var(--accent-red); font-weight: 800; background: #fff1f2; padding: 4px 10px; border-radius: 50px; font-size: 0.85rem; }
+        .badge-total { background: var(--accent-red); color: white; padding: 5px 15px; border-radius: 50px; font-weight: 900; }
+        .table-responsive { max-height: 700px; overflow-y: auto; }
+        thead { position: sticky; top: 0; z-index: 10; background: white; }
+    </style>
+    <meta name="description" content="المكتب الوطني لجمعية سفراء الخير - جمعية وطنية تعنى بالعمل الخيري، التخييم، والأنشطة التربوية والاجتماعية في المغرب.">
+<meta name="keywords" content="سفراء الخير, جمعية سفراء الخير, المكتب الوطني, مخيمات صيفية المغرب, عمل خيري المغرب, تطوع المغرب">
+<meta name="author" content="المكتب الوطني لسفراء الخير">
+
+<meta property="og:title" content="المكتب الوطني لسفراء الخير | الموقع الرسمي">
+<meta property="og:description" content="شاركنا العطاء وكن سفيراً للخير. الموقع الرسمي للجمعية بالمغرب.">
+<meta property="og:image" content="Image1.jpeg"> <meta property="og:url" content="https://www.yourdomain.com">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-900" href="index.html" style="color: var(--main-blue);">سفراء الخير <span class="text-danger">|</span> المكتب الوطني</a>
+            <div class="ms-auto">
+                <a href="index.html" class="btn btn-primary rounded-pill btn-sm px-4 fw-bold">الرئيسية</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-branches">
+        <div class="container">
+            <h1 class="fw-900 mb-2">قاعدة البيانات الوطنية الشاملة</h1>
+            <p class="lead opacity-75">سفراء الخير للتنمية والأعمال الاجتماعية</p>
+            <div class="mt-3"><span class="badge-total">37+ فرعاً مسجلاً عبر المملكة</span></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-wrapper">
+            <input type="text" id="branchSearch" class="form-control text-center shadow" placeholder="🔍 ابحث عن أي فرع أو مسؤول...">
+        </div>
+
+        <div class="table-container mb-5">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle" id="branchTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>المدينة / الإقليم</th>
+                            <th>اسم الفرع</th>
+                            <th>المسؤول (رئيس الفرع)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><span class="city-tag">عين بني مطهر</span></td><td>فرع عين بني مطهر</td><td>السيد عبد العزيز ويدرن</td></tr>
+                        <tr><td>2</td><td><span class="city-tag">انفا</span></td><td>فرع انفا</td><td>السيدة نعمة مرعاش</td></tr>
+                        <tr><td>3</td><td><span class="city-tag">مراكش</span></td><td>فرع جليز</td><td>السيد محسن الحاري</td></tr>
+                        <tr><td>4</td><td><span class="city-tag">امزميز</span></td><td>فرع امزميز</td><td>السيد عمران الحيمو</td></tr>
+                        <tr><td>5</td><td><span class="city-tag">تزاغين</span></td><td>فرع الدريوش</td><td>الآنسة سكينة الزهواني</td></tr>
+                        <tr><td>6</td><td><span class="city-tag">فم اودي</span></td><td>الفرع بني ملال</td><td>السيد توفيق الدواويس</td></tr>
+                        <tr><td>7</td><td><span class="city-tag">وجدة</span></td><td>فرع وجدة</td><td>السيدة السعدية ايت وسراح</td></tr>
+                        <tr><td>8</td><td><span class="city-tag">سطات</span></td><td>فرع سطات</td><td>السيد ياسر الفقري</td></tr>
+                        <tr><td>9</td><td><span class="city-tag">فاس</span></td><td>فرع الزهور سايس</td><td>السيد محمد الفيلالي</td></tr>
+                        <tr><td>10</td><td><span class="city-tag">الحاجب</span></td><td>فرع الحاجب</td><td>السيدة وداد وادليم</td></tr>
+                        <tr><td>11</td><td><span class="city-tag">الداخلة</span></td><td>فرع الداخلة واد الدهب</td><td>السيد ايملمين اكماش</td></tr>
+                        <tr><td>12</td><td><span class="city-tag">حجاج واد حصار</span></td><td>فرع مديونة</td><td>السيد رشيد السعداوي</td></tr>
+                        <tr><td>13</td><td><span class="city-tag">قصبة تادلة</span></td><td>فرع جهة بني ملال خنيفرة</td><td>السيدة ابتسام الحنبالي</td></tr>
+                        <tr><td>14</td><td><span class="city-tag">قصبة تادلة</span></td><td>فرع قصبة تادلة</td><td>السيد الحسين العباسي</td></tr>
+                        <tr><td>15</td><td><span class="city-tag">اولاد صباح</span></td><td>فرع اولاد صباح</td><td>السيد عثمان رفقي</td></tr>
+                        <tr><td>16</td><td><span class="city-tag">كلميم</span></td><td>فرع جهة كلميم واد نون</td><td>السيد سالك ابهاب</td></tr>
+                        <tr><td>17</td><td><span class="city-tag">الصخيرات</span></td><td>فرع الصخيرات</td><td>السيد مصطفى النماط</td></tr>
+                        <tr><td>18</td><td><span class="city-tag">اسفي</span></td><td>فرع جهة مراكش اسفي</td><td>السيد امال مبروك</td></tr>
+                        <tr><td>19</td><td><span class="city-tag">المنزل</span></td><td>فرع اقليم صفرو</td><td>السيدة فاطمة الزهراء دويدة</td></tr>
+                        <tr><td>20</td><td><span class="city-tag">الحي الحسني</span></td><td>فرع النسيم</td><td>السيد بدر المزابي</td></tr>
+                        <tr><td>21</td><td><span class="city-tag">بئر كندوز</span></td><td>فرع اوسرد</td><td>السيدة مريم ابيبك</td></tr>
+                        <tr><td>22</td><td><span class="city-tag">اكادير</span></td><td>فرع اكادير</td><td>السيدة مريم فخش</td></tr>
+                        <tr><td>23</td><td><span class="city-tag">بولمان</span></td><td>فرع بولمان</td><td>السيد محمد المنصوري </td></tr>
+                        <tr><td>24</td><td><span class="city-tag">طانطان</span></td><td>فرع طانطان</td><td>السيد ايوب الحار </td></tr>
+                        <tr><td>25</td><td><span class="city-tag">العيون</span></td><td>فرع جهة العيون الساقية الحمراء</td><td>السيدة ليلى شوريفي</td></tr>
+                        <tr><td>26</td><td><span class="city-tag">اكادير</span></td><td>فرع بنسركاو</td><td>السيد سعيد بن ابراهيم</td></tr>
+                        <tr><td>27</td><td><span class="city-tag">سلا</span></td><td>فرع سلا</td><td>السيد ايوب بونوار</td></tr>
+                        <tr><td>28</td><td><span class="city-tag">اليوسفية</span></td><td>فرع اليوسفية</td><td>السيد كريم الزهراوي</td></tr>
+                        <tr><td>29</td><td><span class="city-tag">العرائش</span></td><td>فرع العرائش</td><td>السيد التهامي مشتي</td></tr>
+                        <tr><td>30</td><td><span class="city-tag">الفداء</span></td><td>فرع الفداء مرس السلطان</td><td>السيد هشام الربيعي </td></tr>
+                        <tr><td>31</td><td><span class="city-tag">الحسيمة</span></td><td>فرع الحسيمة</td><td>السيدة نعيمة الحاجي</td></tr>
+                        <tr><td>32</td><td><span class="city-tag">مريرت</span></td><td>فرع مريرت خنيفرة</td><td>السيدة زينب زازيع</td></tr>
+                        <tr><td>33</td><td><span class="city-tag">تويسيت</span></td><td>فرع جرادة</td><td>السيدة ايمان العقباني</td></tr>
+                        <tr><td>34</td><td><span class="city-tag">سطات</span></td><td>فرع سطات</td><td>السيدة نوال منار</td></tr>
+                        <tr><td>35</td><td><span class="city-tag">وزان</span></td><td>فرع وزان</td><td>السيدة فاطمة الغزواني</td></tr>
+                        <tr><td>36</td><td><span class="city-tag">سيدي عثمان</span></td><td>فرع سيدي عثمان</td><td>السيدة حسناء قبلي</td></tr>
+                        <tr><td>37</td><td><span class="city-tag">الكارة </span></td><td>فرع الكارة </td><td>السيد هشام وهبي</td></tr>
+                        <tr><td>38</td><td><span class="city-tag">جرسيف</span></td><td>فرع جرسيف</td><td>السيد محمد الهشمي</td></tr>
+                        <tr><td>39</td><td><span class="city-tag">مراكش</span></td><td>فرع المنارة</td><td>السيد ياسين الكراعي</td></tr>
+                        <tr><td>40</td><td><span class="city-tag">وجدة</span></td><td>فرع وجدة</td><td>السيد مروان لوصيف</td></tr>
+                        <tr><td>41</td><td><span class="city-tag">الصويرة</span></td><td>فرع الصويرة</td><td>السيدة فدوى بوعركوب </td></tr>
+                        <tr><td>42</td><td><span class="city-tag">مراكش</span></td><td>فرع لالة تكركوست</td><td>السيد ابراهيم ايت مبارك </td></tr>
+                        <tr><td>43</td><td><span class="city-tag">ورزازات</span></td><td>فرع ورزازات</td><td>السيد مروان قراب</td></tr>
+                        <tr><td>44</td><td><span class="city-tag">اولاد سليمان</span></td><td>فرع اولاد سليمان</td><td>السيد حمزة الدنفي </td></tr>
+                        <tr><td>45</td><td><span class="city-tag">لشرق</span></td><td>فرع جهة الشرق</td><td>السيدة السعدية ايت اوسراح </td></tr>
+                        <tr><td>46</td><td><span class="city-tag">بوعرفة</span></td><td>فرع بوعرفة</td><td> </td></tr>
+                        <tr><td>47</td><td><span class="city-tag">شيشاوة</span></td><td>فرع شيشاوة</td><td>  </td></tr>
+                        <tr><td>48</td><td><span class="city-tag">تزنيت</span></td><td>فرع تزنيت</td><td> </td></tr>
+                        <tr><td>49</td><td><span class="city-tag">مريجة</span></td><td>فرع مريجة</td><td> </td></tr>
+
+                        
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center mt-3 text-muted small">هذا الجدول يضم 37+ فرعاً معتمداً من طرف المكتب الوطني.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('branchSearch').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll("#branchTable tbody tr");
+            rows.forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+            });
+        });
+    </script>
+</body>
+</html>

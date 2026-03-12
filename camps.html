@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألبوم المخيمات | سفراء الخير</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --main-blue: #1e3a8a; --accent-red: #ef4444; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; padding-top: 80px; }
+        
+        .navbar { background: #ffffff !important; border-bottom: 1px solid #f1f5f9; }
+        .nav-link { font-weight: 600; color: var(--main-blue) !important; }
+
+        .camps-hero { 
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('image2.jpg'); 
+            background-size: cover; background-position: center;
+            color: white; padding: 80px 0; text-align: center; margin-bottom: 50px;
+        }
+
+        .camp-card {
+            border: none; border-radius: 25px; overflow: hidden;
+            transition: 0.4s; background: white; height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .camp-card:hover { transform: translateY(-10px); }
+        
+        .img-wrapper { position: relative; overflow: hidden; height: 230px; }
+        .camp-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .camp-card:hover .camp-img { transform: scale(1.1); }
+        
+        .camp-badge {
+            background: var(--accent-red); color: white;
+            padding: 5px 15px; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700;
+            position: absolute; top: 15px; left: 15px; z-index: 10;
+        }
+
+        .camp-info { padding: 25px; }
+        .camp-title { color: var(--main-blue); font-weight: 900; margin-bottom: 10px; }
+        
+        .btn-gallery {
+            background: #eff6ff; color: var(--main-blue); border-radius: 50px;
+            padding: 12px 25px; font-weight: 700; border: 2px solid #dbeafe; 
+            width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
+        }
+        .btn-gallery:hover { background: var(--main-blue); color: white; border-color: var(--main-blue); }
+        .btn-gallery i { margin-left: 10px; }
+
+        .section-title { color: var(--main-blue); font-weight: 900; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--accent-red); position: absolute; bottom: 0; right: 0; border-radius: 2px; }
+    </style>
+    <meta name="description" content="المكتب الوطني لجمعية سفراء الخير - جمعية وطنية تعنى بالعمل الخيري، التخييم، والأنشطة التربوية والاجتماعية في المغرب.">
+<meta name="keywords" content="سفراء الخير, جمعية سفراء الخير, المكتب الوطني, مخيمات صيفية المغرب, عمل خيري المغرب, تطوع المغرب">
+<meta name="author" content="المكتب الوطني لسفراء الخير">
+
+<meta property="og:title" content="المكتب الوطني لسفراء الخير | الموقع الرسمي">
+<meta property="og:description" content="شاركنا العطاء وكن سفيراً للخير. الموقع الرسمي للجمعية بالمغرب.">
+<meta property="og:image" content="Image1.jpeg"> <meta property="og:url" content="https://www.yourdomain.com">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-900" href="index.html" style="color: var(--main-blue);">سفراء الخير <span class="text-danger">|</span> ألبوم الصور</a>
+            <a href="index.html" class="btn btn-outline-primary rounded-pill btn-sm px-4 fw-bold">العودة للرئيسية</a>
+        </div>
+    </nav>
+
+    <header class="camps-hero">
+        <div class="container">
+            <h1 class="display-4 fw-900">ذكريات مخيماتنا</h1>
+            <p class="lead fw-bold">شاهد أجمل اللحظات في مختلف مراحل البرنامج الوطني للمخيمات</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="mb-5 text-end">
+            <h2 class="section-title">مراحل صيف 2025</h2>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-3 text-end">
+                <div class="camp-card">
+                    <div class="img-wrapper">
+                        <span class="camp-badge">شاطئ الحوزية</span>
+                        <img src="00.jpg" class="camp-img" alt="مخيم الحوزية">
+                    </div>
+                    <div class="camp-info">
+                        <h4 class="camp-title">مخيم الحوزية</h4>
+                        <p class="text-muted small"></p>
+                        <a href="houzia-gallery.html" class="btn btn-gallery"><i class="fas fa-images"></i> عرض الألبوم</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-end">
+                <div class="camp-card">
+                    <div class="img-wrapper">
+                        <span class="camp-badge">الجوهرة الزرقاء</span>
+                        <img src="s3ydya.jpg" class="camp-img" alt="مخيم السعيدية">
+                    </div>
+                    <div class="camp-info">
+                        <h4 class="camp-title">مخيم السعيدية</h4>
+                        <p class="text-muted small"></p>
+                        <a href="saidia.html" class="btn btn-gallery"><i class="fas fa-images"></i> عرض الألبوم</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-end">
+                <div class="camp-card">
+                    <div class="img-wrapper">
+                        <span class="camp-badge">جوهرة الريف</span>
+                        <img src="hossima.jpeg" class="camp-img" alt="مخيم الحسيمة">
+                    </div>
+                    <div class="camp-info">
+                        <h4 class="camp-title">مخيم الحسيمة</h4>
+                        <p class="text-muted small"></p>
+                        <a href="coming-soon.html" class="btn btn-gallery"><i class="fas fa-images"></i> عرض الألبوم</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-end">
+                <div class="camp-card">
+                    <div class="img-wrapper">
+                        <span class="camp-badge">الأطلس المتوسط</span>
+                        <img src="aglmousse.jpg" class="camp-img" alt="مخيم أكلموس">
+                    </div>
+                    <div class="camp-info">
+                        <h4 class="camp-title">مخيم أكلموس</h4>
+                        <p class="text-muted small"></p>
+                        <a href="coming-soon.html" class="btn btn-gallery"><i class="fas fa-images"></i> عرض الألبوم</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="py-4 text-center bg-white border-top mt-5">
+        <p class="text-muted mb-0">سفراء الخير - قسم الإعلام والتواصل © 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
