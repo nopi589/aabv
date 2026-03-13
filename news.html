@@ -3,91 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أخبار ومقالات الجمعية | سفراء الخير</title>
+    <title>أخبار الجمعية - سفراء الخير</title>
     <style>
-        :root { --primary: #2ecc71; --dark: #2c3e50; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; color: #333; }
-        h1 { text-align: center; color: var(--dark); margin-bottom: 40px; }
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .news-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        :root { --main-color: #2ecc71; --dark-blue: #2c3e50; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        h1 { text-align: center; color: var(--dark-blue); margin-bottom: 30px; border-bottom: 3px solid var(--main-color); display: inline-block; width: 100%; padding-bottom: 10px; }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .news-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; cursor: pointer; }
         .news-card:hover { transform: translateY(-5px); }
-        .news-card img { width: 100%; height: 200px; object-fit: cover; background: #eee; }
-        .news-content { padding: 20px; }
-        .news-content h2 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--dark); }
-        .news-content p { font-size: 0.95rem; color: #666; line-height: 1.6; height: 50px; overflow: hidden; }
-        #status { text-align: center; font-size: 1.2rem; color: #666; margin-top: 50px; }
-        .loading-spinner { border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .news-card img { width: 100%; height: 200px; object-fit: cover; background: #eee; display: block; }
+        .news-content { padding: 15px; }
+        .news-content h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--dark-blue); }
+        .news-content p { font-size: 0.9rem; color: #666; line-height: 1.5; }
+        #status { text-align: center; margin-top: 50px; font-weight: bold; color: #888; }
+        .loading { display: inline-block; width: 30px; height: 30px; border: 3px solid rgba(46, 204, 113, 0.3); border-radius: 50%; border-top-color: var(--main-color); animation: spin 1s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
     <h1>آخر أخبار ومقالات الجمعية</h1>
-    
-    <div id="status">
-        <div class="loading-spinner"></div>
-        جاري تحميل آخر الأخبار...
-    </div>
 
+    <div id="status">
+        <div class="loading"></div><br>
+        جاري جلب الأخبار...
+    </div>
+    
     <div class="news-grid" id="news-container"></div>
 
     <script>
-        async function loadNews() {
+        async function fetchNews() {
             const container = document.getElementById('news-container');
             const status = document.getElementById('status');
             
-            // معلوماتك في GitHub
             const username = "nopi589"; 
             const repo = "aabv"; 
+            const siteUrl = "https://aabv.netlify.app"; // رابط السيت ديالك
 
             try {
-                // 1. جيب ليستة الملفات من مجلد content/news
+                // 1. جلب قائمة الملفات
                 const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/content/news`);
-                if (!response.ok) throw new Error('Repository not found');
-                
-                const files = await response.json();
-                
-                if (files.length === 0) {
-                    status.innerHTML = "لا توجد أخبار منشورة حالياً.";
-                    return;
-                }
+                if (!response.ok) throw new Error("Repository Error");
 
+                const files = await response.json();
                 status.style.display = 'none';
 
-                // 2. دور على كل ملف .md وجبد المعلومات منو
+                // 2. معالجة كل ملف Markdown
                 for (const file of files) {
                     if (file.name.endsWith('.md')) {
                         const res = await fetch(file.download_url);
                         const text = await res.text();
-                        
-                        // جبد العنوان والتصويرة باستعمال Regex
+
+                        // استخراج العنوان والتصويرة باستعمال Regex
                         const titleMatch = text.match(/title:\s*["']?(.*?)["']?(\r?\n|$)/);
                         const imageMatch = text.match(/image:\s*["']?(.*?)["']?(\r?\n|$)/);
-                        const bodyMatch = text.split('---').pop().trim();
+                        
+                        let title = titleMatch ? titleMatch[1] : "خبر بدون عنوان";
+                        let image = imageMatch ? imageMatch[1].trim().replace(/['"]/g, '') : "";
 
-                        const title = titleMatch ? titleMatch[1] : "بدون عنوان";
-                        const image = imageMatch ? imageMatch[1] : "";
+                        // تصحيح مسار التصويرة ليكون رابط كامل
+                        if (image && !image.startsWith('http')) {
+                            // إذا كان المسار يبدأ بـ / نحيدوه باش ما يتوبلش
+                            const cleanPath = image.startsWith('/') ? image : '/' + image;
+                            image = siteUrl + cleanPath;
+                        }
 
-                        // 3. حط الكارط فالسيت
+                        // إضافة الكارت لصفحة الأخبار
                         container.innerHTML += `
-                            <article class="news-card">
-                                ${image ? `<img src="${image}" alt="${title}">` : '<div style="height:200px; background:#ddd;"></div>'}
+                            <div class="news-card">
+                                <img src="${image}" 
+                                     alt="${title}" 
+                                     onerror="this.onerror=null;this.src='https://via.placeholder.com/300x200?text=AABV+News'">
                                 <div class="news-content">
                                     <h2>${title}</h2>
-                                    <p>${bodyMatch.substring(0, 100)}...</p>
+                                    <p>اضغط لمشاهدة التفاصيل الكاملة للمقال...</p>
                                 </div>
-                            </article>
+                            </div>
                         `;
                     }
                 }
-            } catch (error) {
-                console.error(error);
-                status.innerHTML = "عفواً، وقع خطأ أثناء تحميل الأخبار. تأكد من اتصالك بالإنترنت.";
+            } catch (err) {
+                console.error(err);
+                status.innerHTML = "تعذر تحميل الأخبار. تأكد من أن المجلد <code>content/news</code> يحتوي على مقالات.";
             }
         }
 
-        // تخديم الدالة
-        loadNews();
+        fetchNews();
     </script>
 </body>
 </html>
