@@ -16,3 +16,12 @@ collections:
       - {label: "التاريخ", name: "date", widget: "datetime"}
       - {label: "الصورة الرئيسية", name: "image", widget: "image"}
       - {label: "نص المقال", name: "body", widget: "markdown"}
+  - name: "announcements"
+    label: "إعلانات وتنبيهات"
+    folder: "content/announcements"
+    create: true
+    fields:
+      - { label: "عنوان الإعلان", name: "title", widget: "string" }
+      - { label: "نص الإعلان (قصير)", name: "text", widget: "string" }
+      - { label: "تفعيل الإعلان؟", name: "active", widget: "boolean", default: true }
+      - { label: "لون الإعلان", name: "color", widget: "select", options: ["#e67e22", "#e74c3c", "#2980b9"], default: "#e67e22" }    
