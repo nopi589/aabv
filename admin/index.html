@@ -3,55 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة تحكم الجمعية | Admin</title>
+  <title>لوحة التحكم - الجمعية</title>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
-    /* --- تعديلات خاصة بالتلفون --- */
+    /* تصحيح التلفون */
     @media (max-width: 768px) {
-      /* إخفاء جهة الـ Preview باش ما تزاحمش الكتابة */
-      [class*="PreviewPaneFrame"] {
-        display: none !important;
-      }
-      
-      /* توسيع جهة الكتابة باش تاخد الشاشة كاملة */
-      [class*="ControlPaneContainer"] {
-        width: 100% !important;
-        padding: 10px !important;
-      }
-
-      /* تحسين شكل المربعات */
-      [class*="FieldControl"] {
-        margin-bottom: 20px !important;
-      }
-
-      /* تكبير أزرار القائمة العلوي */
-      header {
-        padding: 0 5px !important;
-      }
-      
-      button[class*="StyledAppHeaderButton"] {
-        padding: 4px 8px !important;
-        font-size: 12px !important;
-      }
-
-      /* تعديل لوغو اللوحة */
-      [class*="AppLayoutLogo"] {
-        display: none; /* حيد اللوغو فالتلفون باش يلقاو الأزرار فين يبانو */
-      }
-    }
-
-    /* تحسين الخطوط والتنسيق العام */
-    [data-slate-editor] {
-      line-height: 1.6 !important;
-      font-size: 16px !important;
+      [class*="PreviewPaneFrame"] { display: none !important; }
+      [class*="ControlPaneContainer"] { width: 100% !important; padding: 10px !important; }
+      [class*="AppLayoutLogo"] { display: none !important; }
+      header { padding: 0 5px !important; }
     }
   </style>
 </head>
 <body>
-  <script>
-    // إعدادات إضافية اختيارية
-    CMS.registerPreviewStyle("https://aabv.netlify.app/style.css");
-  </script>
-</body>
+  </body>
 </html>
