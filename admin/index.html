@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة التحكم | سفراء الخير</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-  <style>
-    /* هاد الكود غيصلح الديكور للرئيس فالتلفون */
-    @media (max-width: 800px) {
-      [class*="PreviewPaneFrame"] { display: none !important; }
-      [class*="ControlPaneContainer"] { width: 100% !important; padding: 10px !important; }
-      [class*="AppLayoutLogo"] { display: none !important; }
-      header { padding: 0 5px !important; }
-      input, textarea { font-size: 16px !important; }
-    }
-  </style>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* هاد الشوية ديال CSS باش ما تبقاش اللوحة مخربقة ف التلفون */
+      @media (max-width: 800px) {
+        [class*="PreviewPaneFrame"] { display: none !important; }
+        [class*="ControlPaneContainer"] { width: 100% !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>
