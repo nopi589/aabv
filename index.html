@@ -254,32 +254,7 @@
     </div>
 </footer>
 
-<script>
-async function fetchAnnouncements() {
-    try {
-        const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/content/announcements`);
-        const files = await res.json();
-        if (files.length > 0) {
-            const lastFile = files[files.length - 1]; // ناخدو آخر إعلان تلاح
-            const fileData = await fetch(lastFile.download_url);
-            const text = await fileData.text();
-            
-            // استخراج البيانات بـ Regex
-            const active = text.match(/active:\s*(true|false)/)?.[1] === 'true';
-            const msg = text.match(/text:\s*["']?(.*?)["']?(\r?\n|$)/)?.[1];
-            const color = text.match(/color:\s*["']?(.*?)["']?(\r?\n|$)/)?.[1];
-
-            if (active && msg) {
-                const bar = document.getElementById('announcement-bar');
-                bar.style.display = 'block';
-                bar.style.backgroundColor = color;
-                document.getElementById('announcement-text').innerText = msg;
-            }
-        }
-    } catch (e) { console.log("No announcements"); }
-}
-fetchAnnouncements();
- src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" </script>
+<script> src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"</script>
 
 </body>
 </html>
