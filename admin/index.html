@@ -1,49 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <style>
-    /* تصحيحات التلفون */
-    @media (max-width: 800px) {
-      [class*="PreviewPaneFrame"] { display: none !important; }
-      [class*="ControlPaneContainer"] { width: 100% !important; padding: 10px !important; }
-      [class*="AppLayoutLogo"] { display: none !important; }
-    }
-  </style>
-</head>
-<body>
-  <script>
-    // هاد الجزء هو اللي كيقول للوحة فين تمشي (GitHub) بلا ما يحتاج ملف config.yml خارجي
-    window.CMS_CONFIGURATION = {
-      config: {
-        backend: {
-          name: "github",
-          repo: "nopi589/aabv", // تأكد بلي هادي سمية الريبو ديالك
-          branch: "main",
-        },
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        collections: [
-          {
-            name: "news",
-            label: "الأخبار",
-            folder: "content/news",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "العنوان", name: "title", widget: "string" },
-              { label: "التصويرة", name: "image", widget: "image" },
-              { label: "المحتوى", name: "body", widget: "markdown" }
-            ]
-          }
-        ]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* هاد الشوية ديال CSS باش ما تبقاش اللوحة مخربقة ف التلفون */
+      @media (max-width: 800px) {
+        [class*="PreviewPaneFrame"] { display: none !important; }
+        [class*="ControlPaneContainer"] { width: 100% !important; }
       }
-    };
-  </script>
-</body>
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>
