@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الذاكرة | سفراء الخير</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --main-blue: #1e3a8a; --accent-red: #ef4444; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f1f5f9; min-height: 100vh; margin: 0; }
+        
+        .nav-back { background: white; padding: 15px; border-bottom: 1px solid #e2e8f0; width: 100%; }
+        
+        .game-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        
+        .stats-bar { background: white; padding: 10px 25px; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; font-weight: 700; color: var(--main-blue); }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+            gap: 12px;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .card-box {
+            aspect-ratio: 1/1;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-box.flipped .card-inner { transform: rotateY(180deg); }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.8rem;
+        }
+
+        /* وجه الكارطة (مخفي) */
+        .card-front {
+            background-color: var(--main-blue);
+            color: white;
+        }
+
+        /* ظهر الكارطة (الأيقونة) */
+        .card-back {
+            background-color: white;
+            color: var(--main-blue);
+            transform: rotateY(180deg);
+            border: 2px solid var(--main-blue);
+        }
+
+        .card-box.matched .card-inner {
+            animation: pulse 0.5s transparent;
+        }
+        
+        .card-box.matched .card-back {
+            background-color: #dcfce7;
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+
+        @keyframes pulse {
+            0% { transform: rotateY(180deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.1); }
+            100% { transform: rotateY(180deg) scale(1); }
+        }
+
+        @media (max-width: 400px) {
+            .memory-grid { gap: 8px; }
+            .card-back { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-back text-end shadow-sm">
+        <div class="container">
+            <a href="games.html" class="text-decoration-none fw-bold text-dark">
+                <i class="fas fa-arrow-right ms-2 text-primary"></i> رجوع للألعاب
+            </a>
+        </div>
+    </div>
+
+    <div class="game-wrapper">
+        <h2 class="fw-900 mb-2">اختبار الذاكرة</h2>
+        <p class="text-muted small mb-3">لقى كل جوج تصاور بحال بحال</p>
+        
+        <div class="stats-bar">
+            <span>المحاولات: <span id="moves-count">0</span></span>
+        </div>
+        
+        <div class="memory-grid" id="game-grid">
+            </div>
+
+        <button class="btn btn-primary mt-4 px-5 rounded-pill fw-bold shadow" onclick="initGame()">إعادة اللعب</button>
+    </div>
+
+    <script>
+        const icons = ['fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-bomb', 'fa-cube', 'fa-leaf', 'fa-pawn', 'fa-rocket'];
+        let cardsData = [...icons, ...icons];
+        let flippedCards = [];
+        let moves = 0;
+        let matches = 0;
+        let canFlip = true;
+
+        const grid = document.getElementById('game-grid');
+        const movesDisplay = document.getElementById('moves-count');
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function initGame() {
+            grid.innerHTML = '';
+            flippedCards = [];
+            moves = 0;
+            matches = 0;
+            canFlip = true;
+            movesDisplay.innerText = moves;
+            
+            const shuffledIcons = shuffle(cardsData);
+            
+            shuffledIcons.forEach((icon, index) => {
+                const card = document.createElement('div');
+                card.className = 'card-box';
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question"></i></div>
+                        <div class="card-back"><i class="fas ${icon}"></i></div>
+                    </div>
+                `;
+                card.addEventListener('click', () => flipCard(card, icon));
+                grid.appendChild(card);
+            });
+        }
+
+        function flipCard(card, icon) {
+            if (!canFlip || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+            card.classList.add('flipped');
+            flippedCards.push({ card, icon });
+
+            if (flippedCards.length === 2) {
+                moves++;
+                movesDisplay.innerText = moves;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [c1, c2] = flippedCards;
+            canFlip = false;
+
+            if (c1.icon === c2.icon) {
+                c1.card.classList.add('matched');
+                c2.card.classList.add('matched');
+                matches++;
+                flippedCards = [];
+                canFlip = true;
+                
+                if (matches === icons.length) {
+                    setTimeout(() => {
+                        alert('مبروك! كملتي التحدي بنجاح 🏆');
+                    }, 500);
+                }
+            } else {
+                setTimeout(() => {
+                    c1.card.classList.remove('flipped');
+                    c2.card.classList.remove('flipped');
+                    flippedCards = [];
+                    canFlip = true;
+                }, 1000);
+            }
+        }
+
+        // تشغيل اللعبة عند التحميل
+        document.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>

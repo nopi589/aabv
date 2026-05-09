@@ -10,24 +10,27 @@
     <style>
         :root { --main-blue: #1e3a8a; --accent-red: #ef4444; }
         
-        body { font-family: 'Cairo', sans-serif; color: #334155; overflow-x: hidden; padding-top: 90px; } /* زدت padding باش الـ hero ما يتخباش */
+        body { font-family: 'Cairo', sans-serif; color: #334155; overflow-x: hidden; padding-top: 70px; }
 
-        /* الـ Navbar ولات بيضا ديما */
+        /* الـ Navbar */
         .navbar { 
             background: #ffffff !important; 
-            padding: 15px 0; 
+            padding: 10px 0; 
             z-index: 1050; 
             border-bottom: 1px solid #f1f5f9;
+            height: 70px;
         }
 
         .nav-link { 
             font-weight: 600; 
             margin: 0 10px; 
-            color: var(--main-blue) !important; /* لون الروابط أزرق حيت الخلفية بيضا */
+            color: var(--main-blue) !important;
+            transition: 0.3s;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover {
             color: var(--accent-red) !important;
+            padding-right: 10px;
         }
 
         .brand-title { color: var(--main-blue) !important; }
@@ -41,21 +44,20 @@
             display: flex; 
             align-items: center; 
             color: white; 
-            border-radius: 0 0 50px 50px; /* لمسة فنية في الأسفل */
+            border-radius: 0 0 50px 50px;
         }
 
         .president-img { border-radius: 30px; border: 10px solid white; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .counter-section { background: var(--main-blue); color: white; padding: 60px 0; }
         footer { background: #0f172a; color: white; padding: 40px 0; }
         .fw-900 { font-weight: 900; }
-    </style>
-    <meta name="description" content="المكتب الوطني لجمعية سفراء الخير - جمعية وطنية تعنى بالعمل الخيري، التخييم، والأنشطة التربوية والاجتماعية في المغرب.">
-<meta name="keywords" content="سفراء الخير, جمعية سفراء الخير, المكتب الوطني, مخيمات صيفية المغرب, عمل خيري المغرب, تطوع المغرب">
-<meta name="author" content="المكتب الوطني لسفراء الخير">
 
-<meta property="og:title" content="المكتب الوطني لسفراء الخير | الموقع الرسمي">
-<meta property="og:description" content="شاركنا العطاء وكن سفيراً للخير. الموقع الرسمي للجمعية بالمغرب.">
-<meta property="og:image" content="Image1.jpeg"> <meta property="og:url" content="https://www.yourdomain.com">
+        .offcanvas { width: 300px !important; }
+        
+        /* إخفاء القائمة العادية وتفعيل الجانبية */
+        .navbar-expand-lg .navbar-toggler { display: block !important; }
+        .navbar-expand-lg .navbar-collapse { display: none !important; }
+    </style>
 </head>
 <body>
 
@@ -65,7 +67,7 @@
         <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
             <img src="image11.png" alt="لوغو" style="height: 45px;">
             <div class="brand-text ms-2 text-end">
-                <span class="d-block fw-900 fs-5 brand-title" style="color: #1e3a8a; line-height: 1.1;">سفراء الخير</span>
+                <span class="d-block fw-900 fs-5 brand-title" style="line-height: 1.1;">سفراء الخير</span>
             </div>
         </a>
 
@@ -75,7 +77,6 @@
                 <i class="fas fa-bars-staggered fs-3" style="color: #1e3a8a;"></i>
             </button>
         </div>
-
     </div>
 </nav>
 
@@ -105,6 +106,9 @@
                 <a class="nav-link fw-bold text-dark fs-5" href="news.html"><i class="fa-solid fa-newspaper ms-2"></i> آخر الأخبار</a>
             </li>
             <li class="nav-item py-2 border-bottom">
+                <a class="nav-link fw-bold fs-5" href="games.html" style="color: #ef4444 !important;"><i class="fa-solid fa-gamepad ms-2"></i> ركن الألعاب</a>
+            </li>
+            <li class="nav-item py-2 border-bottom">
                 <a class="nav-link fw-bold text-dark fs-5" href="branches.html"><i class="fa-solid fa-map-location-dot ms-2"></i> فروعنا</a>
             </li>
             <li class="nav-item py-2 border-bottom">
@@ -118,77 +122,6 @@
         </div>
     </div>
 </div>
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title fw-900 text-primary" id="offcanvasNavbarLabel">القائمة الرئيسية</h5>
-        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1">
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="index.html"><i class="fa-solid fa-house-chimney ms-2"></i> الرئيسية</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="camps.html"><i class="fa-solid fa-tent ms-2"></i> مخيماتنا</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="documents.html"><i class="fa-solid fa-folder-open ms-2"></i> وثائق الجمعية</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="youth-universities.html"><i class="fa-solid fa-graduation-cap ms-2"></i> الجامعات الشبابية</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="news.html"><i class="fa-solid fa-newspaper ms-2"></i> آخر الأخبار</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="branches.html"><i class="fa-solid fa-map-location-dot ms-2"></i> فروعنا</a>
-            </li>
-            <li class="nav-item py-2 border-bottom">
-                <a class="nav-link fw-bold text-dark fs-5" href="volunteer.html"><i class="fa-solid fa-hand-holding-heart ms-2"></i> تطوع معنا</a>
-            </li>
-        </ul>
-        
-        <div class="mt-5 text-center">
-            <p class="small text-muted mb-2">تابعونا على مواقع التواصل</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#" class="text-primary fs-4"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="text-danger fs-4"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-success fs-4"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* تصغير الـ Navbar */
-    #mainNav {
-        padding: 10px 0;
-        height: 70px;
-    }
-
-    /* ستايل الروابط داخل المنيو */
-    .offcanvas-body .nav-link:hover {
-        color: #ef4444 !important;
-        padding-right: 10px; /* حركة خفيفة عند التمرير */
-    }
-
-    .offcanvas {
-        width: 300px !important; /* عرض المنيو */
-    }
-
-    body {
-        padding-top: 70px; /* باش المحتوى ما يتخباش */
-    }
-    
-    /* إخفاء زر التوجل العادي ديال بوتستراب واستعمال المنيو الجانبي ديما */
-    .navbar-expand-lg .navbar-toggler {
-        display: block !important;
-    }
-    .navbar-expand-lg .navbar-collapse {
-        display: none !important;
-    }
-</style>
 
 <header class="hero text-center">
     <div class="container">
